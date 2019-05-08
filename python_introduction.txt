@@ -1,0 +1,340 @@
+
+Python was initially designed by Guido van Rossum in 1991 and developed by Python Software Foundation. It was mainly developed for emphasis on code readability, and its syntax allows programmers to express concepts in fewer lines of code.
+
+Reasons Why You Must Consider Writing Software Applications in Python:
+
+SIMPLE & EASY to LEARN   
+From my opninon it has to be Python, because simply it is simple and easy to learn. 
+In few moments when we start looking at python code,you will notice how it looks like English.
+It doesn't even look like code, when people hear the word CODE, they start thinking of  ones and zeros or they going to think about  the puzzle that you have to solve.
+Nothing it is just a detailed instructions like writting an email.
+
+OPEN SOURCE
+Next is that it is free and open source, in the sense that you dont need to pay anybody for using python.
+Python is an example of FLOSS (Free/Libre and OPen Source Software) which means one can freely distribute the copies of this software,read it source code and modify it,etc..
+
+HIGH LEVEL LANGUAGE
+You believe it or not , the first three lines are valid python code.Almost we never going to look at this right side.
+
+PORTABLE
+Then it is portable , portable being that we can use it on multiple devices whether that's window device,linux device or mac devices.
+
+SUPPORT DIFFERENT PROGRAMMING PARADIGM
+Paradingm is nothing but styles of writting programs  
+Python supports procedure oriented program  as well as object oriented programming.
+As of now i would not recommend you to think about this. It is just kind of running, when you familiar with the programming you will come to know this. Just know it supports multiple writting styles.
+
+EXTENSIBLE
+Netx is Extensible in the sense that you can invoke C and C++ libraries from python.
+we can sort of call other codes using python that way it is very extensible and increases the usability of it.
+
+ROBUST STANDARD LIBRARY
+Its large and robust standard library makes Python score over other programming languages. 
+The standard library allows you to choose from a wide range of modules according to your precise needs. 
+
+OPEN SOURCE FRAMEWORKS AND TOOLS
+	You can even use several open source Python frameworks, libraries and development tools to curtail development time without increasing development cost.
+	For instance, you can simplify and speedup web application development by using robust Python web frameworks like Django, Flask, Pyramid, Bottle and Cherrypy. Likewise, you can accelerate desktop GUI application development using Python GUI frameworks and toolkits like PyQT, PyJs, PyGUI, Kivy, PyGTK and WxPython.
+
+SIMLPLIFY COMPLEX SOFTWARE DEVELOPMENT
+	Python is a general purpose programming language. Hence, you can use the programming language for developing both desktop and web applications.
+	You can develop some data visualization appication using python.
+	It is very easy to construct prototype in Python,from this prototype we can develop to its comaplex logic.
+ 
+Python also used by the lot of comapnies.  let me name some of  those.
+	Youtube -->Video sharing system is largely written in python
+	Google --> Web search system
+	Dropbox --> Dropbox storage service code both its server and client software primarly in python
+	NASA -- >NASA uses for specific programming task
+	NETFLIX -- > Uses python to develop thier software infrastructure
+	BitTorrent --> peer to peer file sharing system began its life as a python program
+
+ 
+Python really works out for most of the thing out there.
+	Like you want to develop website you can use python , 
+	you want to do data analysis or you want to do data science, if you want to use automation testing you can use python with selenium.
+	You want the data from the internet (like from web pages) called Web Scrapping or web scrawling for that  you can use Python.
+
+Lets look at how to get started.
+	About Python Interpreter.
+	python interpreter that reads and execute the code.
+	This includes the source code and  pre compiled scripts and code.
+
+
+*********************************************************************************************************
+*********************************** Programming structure ***********************************************
+*********************************************************************************************************
+
+Programming structure
+	
+        Statements
+		Comments_literals:
+			--Tell about Commenting the code.
+			Literal command  --> #
+			Bulk Command --> (""" """)
+
+	Attributes and Imports
+	Modules
+	Library files
+	Functions
+
+
+*********************************************************************************************************
+*********************************** Python Fundamentals ***********************************************
+*********************************************************************************************************
+
+		========================================
+		Python Keywords ,Identifiers & Variable 
+		========================================
+
+===================================  Keywords ===============================================
+
+Keywords:
+	--> For unique operation (Reserved for specific purpose)
+	--> Can not be used as variable.
+	--> 33 keywords
+	--> TO know the lsit of keword: 
+		import keyword
+		print(keyword.kwlist)
+	--> dir(keyword)
+
+============================= Identifiers =====================================================
+Identifiers:
+	--> User-defined names to represent a variable, function, class, module or any other object. 
+	--> If you assign some name to a programmable entity in Python, then it is nothing but technically called an identifier.
+	Guidelines For Creating Identifiers:
+		--> Sequence of letters either in lowercase (a to z) or uppercase (A to Z). can mix with digits and _.
+			Eg: Abn_dhd , A09_hdbvhd
+                --> Can’t use digits to begin an identifier name.
+			Eg: 0Shape
+		--> Can't use the keyword as identifiers ==> (SyntaxError: can't assign to keyword)
+		--> Should not contain [‘.’, ‘!’, ‘@’, ‘#’, ‘$’, ‘%’] in identifiers.
+		--> Can have an identifier with unlimited length (some time Using a large name (more than 79 chars) would lead to the violation of a rule set by the 			PEP-8 standard)
+	Testing If An Identifier Is Valid:
+		import keyword;keyword.iskeyword("techbeamers")
+		keyword.iskeyword("try")
+		(or) 
+		'abc'.isidentifier() ==> True
+		'1techbeamers'.isidentifier() ==> False
+	Naming Convention
+		--> Class name starts with Upper case letter.All other identifiers starts with lower case letter
+		--> Starting an identifier with single leading underscore indicates that the identifier is private
+		--> Starting an identifier with two leading underscore indicates that the identifier is strongly private.
+		--> if the identifier also ends with two trailing underscore, the identifier is Language-defined special name.
+	
+=================================== Variable =======================================================
+
+Variable:
+	--> Entity whose value can change as and when required
+	--> Conceptually, it is a memory location which holds the actual value. And we can retrieve the value from our code by querying the entity.
+	--> It requires assigning a label to that memory location so that we can reference it. And we call it as a variable in the programming terms.
+	Key facts:
+		--> Don’t require declaration but must initialize before use
+		--> Whenever the expression changes, Python associates a new object (a chunk of memory) to the variable for referencing that value. And the old one 		    goes to the garbage collector.
+			>>> test = 10
+			>>> id(test)
+			1716585200
+			>>> test = 11
+			>>> id(test)
+			1716585232
+
+
+
+		========================================
+			Python Data types 
+		========================================
+Data Types:
+	--> Python determines the type of a literal directly from the syntax at runtime.
+	--> Dynamic typed
+	--> Data type defines the format, sets the upper and lower limit of the data so that program can use it appropirately.
+
+
+Basically we have two data types in python, Those are Mutable and immutable data types.
+
+Types:
+
+=================================== Boolean Data type ==============================================
+Boolean:
+	--> True or False
+	Eg:
+		condition = False
+		if condition == True:
+    			print("You can continue with the prpgram.")
+		else:
+    			print("The program will end here.")
+		-----------------------------------------------------
+
+		str = "Learn Python" --> len(str) == 12 ==> True
+
+=================================== Numbers =================================================================
+
+Numbers:
+		--> It support three different numeric values.
+		Int  ==> 2
+		Float  ==> 2.5
+		Complex ==> 2+6j
+		
+
+		--> type() == > to determine the data type of a variable or the value. 
+			num = 3.0
+			print("The number (", num, ") is of type", type(num))
+		--> isinstance() ==> there for testing the type of an object
+			print("The number ", num, " is complex number?", isinstance(3+5j, complex))
+		--> complex(1.2,5) -- To form the complex numbers
+		-->  num = 1234567890123456789 ==> num.bit_length() --> to get the length of the value
+
+
+=================================== Strings =================================================================
+
+Strings:
+
+		--> The continuos set of characters represented within quotes.
+ 		--> variable='I am Learning  Python'
+		Operations:
+			str='balaji'
+			str.replace('a','aa',pos)==> 1 refres the number of place
+			str.upper()
+			str.lower()
+			str.index('a','pos')
+			str[::-1] ==> revrese the string
+			str[1:3] ==> slicing 
+			str.find('l') ==> return the index at which the given letter is present
+			str1+str2 ==> concatenation of two strings 
+			string formatting ==> %d,%s & %f.....
+			str.capitalize()
+			str.count('a') ==>to get the count of the given letter
+
+
+=================================== List ================================================================= 
+List:
+		It is a heterogeneous collection of items of varied data types
+		List is an ordered elements enclosed in squre brackets.
+		It can have list in it or tuples in it.
+		Allows duplicate members.
+		Eg: thislist = ["apple", "banana", "cherry"]
+		Access items: You access the list items by referring to the index number ==>  thislist[1] 
+		Change Value:To change the value of a specific item, refer to the index number ==> thislist[1] = "blackcurrant"
+		Add Item: To add an item to the end of the list, use the append() method ==> thislist.append("orange")
+		Insert Item: To add an item at the specified index, use the insert() method ==> thislist.insert(1, "orange")
+		Remove Item:
+			thislist.remove("banana")
+			pop: The pop() method removes the specified index, (or the last item if index is not specified)
+				thislist.pop()
+			del :The del keyword removes the specified index
+				del thislist[0]
+			       The del keyword can also delete the list completely ==> del thislist	
+			clear: The clear() method empties the list ==> thislist.clear()
+		Copy a List:
+			You cannot copy a list simply by typing list2 = list1, because: list2 will only be a reference to list1, and changes made in list1 will 			automatically also be made in list2.
+			2 ways to copy:
+				mylist = thislist.copy() #usingcopymethod
+				mylist = list(thislist) #using list constructor
+		List Constructor:
+			It is also possible to use the list() constructor to make a new list.
+			thislist = list(("apple", "banana", "cherry"))# need to give with double rounded brackets.
+		List Methods:
+			append(),clear(),copy(),count(),extend(),index(),insert(),pop(),remove(),reverse(),sort()
+
+		WHEN TO USE:
+			If you have collection of data that does not need random access
+			When you have to deal with data that need to be changed.
+		LIST COMPREHENSION:
+			list_ =[ i** 2 for i in [1,2,3,4] if i%2==0]
+
+
+=================================== Tuples ================================================================= 
+
+Tuples:
+		Heterogeneous collection of Python objects separated by commas.
+		It consists of a numbers of values seperated by commas and it is enclosed within paranthesis. 	
+		You cannot assign any value to the Tuple ie (Immutable).
+		Allows duplicate members.
+		Once a tuple is created, you cannot add items to it. Tuples are unchangeable.
+		you cannot remove items from it, but you can delete the tuple completely using del keyword
+			thistuple = ("apple", "banana", "cherry")
+			del thistuple
+		tuple() constructor:
+			thistuple = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+		Tuple mehods:
+			count(),index() 
+ 		WHEN TO USE:
+			When you need to complete the task in short time(Tuple has less execution time)
+			Where you have to deal with values which can not be changed.
+
+=================================== Sets================================================================= 
+
+Sets:
+		Set is an unordered collections of unique items.
+		It is defined by values seperated by commas inside braces {}
+		Operations:
+			UNION  == > A|B
+			MINUS == > A-B
+			INTERSECT == > A&B
+		thisset = {"apple", "banana", "cherry"}
+		thisset.add("orange") ==> Add an item to a set
+		thisset.update(["orange", "mango", "grapes"]) ==> Add multiple items to a set
+		print(len(thisset)) ==> To get the length of a set
+		thisset.remove("banana") ==>  If the item to remove does not exist, remove() will raise an error.
+		or thisset.discard("banana") ==> If the item to remove does not exist, discard() will NOT raise an error.
+		thisset.pop() ==> You can also use the pop(), method to remove an item, but this method will remove the last item. 			            						Remember that sets are unordered, so you will not know what item that gets removed.
+		thisset.clear() ==> empties the set
+		del thisset   ==> delete the set completely
+		set() instruction ==> thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
+		issubset() ==> A.issubset(B)
+		issuperset() ==> A.issuperset(B)
+		WHEN TO USE:
+			If we want to collect unique strings or int from sequences.			
+
+===================================  Dictionary =================================
+
+Dictionary:
+	
+		A dictionary is a collection which is unordered, changeable and indexed. In Python dictionaries are written with curly brackets, and they have keys and values.
+		Eg:thisdict =	{ "brand": "Ford", "model": "Mustang","year": 1964}
+		You can access the items of a dictionary by referring to its key name, inside square brackets
+				thisdict["model"]==> throws exception if the key not exists
+		get() that will give you the same result ==> x = thisdict.get("model")-- If the key not exists returns None
+		change the value of a specific item by referring to its key name ==> thisdict["year"] = 2018
+		loop through a dictionary by using a for loop. ==> for x in thisdict: print (x)
+		values() function to return values of a dictionary ==> for x in thisdict.values(): print (x)
+ 		Using the items() function ==> for x, y in thisdict.items():print (x,y )
+		Using a new index key and assigning a value to it ==> thisdict["color"] = "red"
+		Removing an Item:
+			pop() method removes the item with the specified key name:
+				thisdict.pop("model")
+			popitem() method removes the last inserted item (in versions before 3.7, a random item is removed instead):
+				thisdict.popitem()
+			del keyword removes the item with the specified key name and it can completely detsroy the dictionary:
+				del thisdict["model"]
+				del thisdict
+			thisdict.clear() ==> empties the dictionary
+		mydict = thisdict.copy() or mydict = dict(thisdict)==> copy of a dictionary
+		dict() constructor to make a new dictionary:
+			thisdict =	dict(brand="Ford", model="Mustang", year=1964)
+			# note that keywords are not string literals
+			# note the use of equals rather than colon for the assignment
+		WHEN TO USE:
+			If you have collection of data that need random access.
+			For eg:Excel data where we have headers and data and if you want to know the 5th header you canrefer
+			it.
+***********************************************************************************************************************************************************************
+
+Data Types
+
+Mutable : Values can be changed
+	List
+	Dictionary
+	Sets
+		
+	
+Immutable: Values can not be changed
+	Numbers		
+	Strings		
+	Tuples
+		
+=======================================================================================================================================================================
+
+
+
+
+
