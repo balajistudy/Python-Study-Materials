@@ -1,0 +1,338 @@
+****************************************** Python Generator
+
+--> Generator in Python has unique abilities. 
+--> Can either suspend or resume it at run time
+--> It returns a iterator object which we can step through and access a single value in each iteration
+--> Final words, generator provides a way of creating iterators.
+
+
+***********************************************************************************************************************************************************************
+In Python, it is cumbersome(complicated) to build an iterator. First, we require to write a class and implement the __iter__() and __next__() methods. 
+Secondly, we need to manage the internal states and throw StopIteration exception when there is no element to return.
+***********************************************************************************************************************************************************************
+
+
+===========================  Generator Function =========================================================================================================
+
+--> We can write like user defined function.
+
+	***********************************************************************
+	The difference here is we need to use yeild statement instead of return
+	***********************************************************************
+
+************************************************************
+********************** Program *****************************
+************************************************************
+# Generator Function Syntax
+# 
+def gen_func(args):
+    ...
+    while [cond]:
+        ...
+        yield [value]
+
+************************************************************
+
+
+
+
+************************************************************
+********************** Program *****************************
+************************************************************
+
+
+
+# Demonstrate Python Generator Function
+---------------------------------------------------------------
+def fibonacci(xterms):
+    # first two terms
+    x1 = 0
+    x2 = 1
+    count = 0
+
+    if xterms <= 0:
+       print("Please provide a +ve integer")
+    elif xterms == 1:
+       print("Fibonacci seq upto",xterms,":")
+       print(x1)
+    else:
+       while count < xterms:
+           xth = x1 + x2
+           x1 = x2
+           x2 = xth
+           count += 1
+           yield xth
+
+fib = fibonacci(5)
+
+print(next(fib))
+print(next(fib))
+print(next(fib))
+print(next(fib))
+print(next(fib))
+print(next(fib))
+--------------------------------------------------------------------
+The final next(fib) will throw an exception 
+Traceback (most recent call last):
+  File "C:/Python/Python35/python_generator.py", line 29, in 
+    print(next(fib))
+StopIteration
+
+since we are trying to access the generator beyod its iteration
+
+
+
+========================================== Generator Expression =======================================================================================================
+
+Python allows to create a anaonymous generator functions.(similar to lambda function) same as list comprehension
+
+List comprehension --> uses [] and gives full list
+generator expression --> uses () and return only one value at a time.
+
+
+************************************************************
+********************** Program *****************************
+************************************************************
+
+
+# Generator Expression Syntax
+------------------------------------------------
+gen_expr = (var**(1/2) for var in seq)
+----------------------------------------------
+
+
+# Demonstrate Python Generator Expression
+----------------------------------------------------------
+# Define the list
+alist = [4, 16, 64, 256]
+
+# Find square root using the list comprehension
+out = [a**(1/2) for a in alist]
+print(out)
+
+# Use generator expression to calculate the square root
+out = (a**(1/2) for a in alist)
+print(out)
+print(next(out))
+print(next(out))
+print(next(out))
+print(next(out))
+print(next(out))
+--------------------------------------------------------------
+
+
+=======================================================================================================================================================================
+
+How to use Generator
+
+1) Using Next() method:
+	--> most common method to get value from the generator
+
+
+# Generator next() Method Demo
+--------------------------------------------------------------
+alist = ['Python', 'Java', 'C', 'C++', 'CSharp']
+def list_items():
+    for item in alist:
+        yield item
+
+gen = list_items()
+
+iter = 0
+
+while iter < len(alist):  
+    print(next(gen))
+    iter += 1
+--------------------------------------------------------------
+
+
+2) Using For Loop
+	--> next() call happens implicitly and we get to use all elements one by one.
+
+
+# Generator For Loop Demo
+--------------------------------------------------------------
+alist = ['Python', 'Java', 'C', 'C++', 'CSharp']
+def list_items():
+    for item in alist:
+        yield item
+
+gen = list_items()
+
+for item in gen:
+    print(item) 
+--------------------------------------------------------------
+
+
+
+Return VS yield
+
+
+--> The return is a final statement of a function. 
+--> It provides a way to send some value back.
+--> While returning, its local stack also gets flushed. And any new call will begin execution from the very first statement.
+
+--> On the contrary, the yield preserves the state between subsequent function calls. 
+--> It resumes execution from the point where it gave back the control to the caller, i.e., right after the last yield statement.
+
+
+Generator Vs. Function
+
+Generator uses yield stmt and function uses return stmt
+The generator function can have one or more than one yield call.
+The yield call pauses the execution and returns an iterator whereas the return statement is the last one to be executed
+The next() method call triggers the execution of the generator function
+Local variables and their states retain between successive calls to the next() method
+Any additional call to the next() will raise the StopIteration exception if the there is no further item to process
+
+
+
+# Python Generator Function with Multiple Yield
+-------------------------------------------
+def testGen():
+    x = 2
+    print('First yield')
+    # Generator function has many yield statements
+    yield x
+
+    x *= 1
+    print('Second yield')
+    yield x
+
+    x *= 1
+    print('Last yield')
+    yield x
+
+# Call the generator
+iter = testGen()
+
+# Invoke the first yield
+next(iter)
+
+# Invoke the second yield
+next(iter)
+
+# Invoke the last yield
+next(iter)
+-----------------------------------------------------
+output:
+First yield
+Second yield
+Last yield
+
+
+=======================================================================================================================================================================
+
+When to use Genertor:
+
+--> Generators can help to process large amounts of data.They can let us do the calculation when we want, also known as the lazy evaluation. The stream processing uses this approach.
+--> can also let us establish concurrency
+--> Generators are super useful for web scraping and help increasing crawl efficiency. They can allow us to fetch the single page, do some operation and move on to the next. This approach is far more efficient and straightforward than retrieving all pages at once and then use another loop to process them.
+
+Why use generator:
+
+--> Programming friendly feature
+	-->  They are a perfect alternative for the iterators.
+
+Let’s consider the following example to implement the Arithmetic Progression using the Iterator Class.
+------------------------------------------------------------------
+# Generate Arithmetic Progression Using Iterator Class
+# 
+class AP:
+    def __init__(self, a1, d, size):
+        self.ele = a1
+        self.diff = d
+        self.len = size
+        self.count = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self): 
+        if self.count >= self.len:
+            raise StopIteration
+        elif self.count == 0:
+            self.count += 1
+            return self.ele
+        else:
+            self.count += 1
+            self.ele += self.diff
+            return self.ele
+
+for ele in AP(1, 2, 10):
+    print(ele)
+---------------------------------------------------------
+The same logic is much easier to write with the help of a generator.
+
+# Generate Arithmetic Progression Using Generator Function
+# 
+def AP(a1, d, size):
+    count = 1
+    while count <= size:
+        yield a1
+        a1 += d
+        count += 1
+
+for ele in AP(1, 2, 10):
+    print(ele)
+-----------------------------------------------------------
+
+--> Memory Agnostic
+	--> If we use a regular function to return a list, then it will form the full sequence in the memory before sending to the caller. Such an operation would cause high memory usage and become extremely inefficient.
+
+	--> On the contrary, using a generator will consume less memory, and your program will become much more efficient as it will have to process only one item at a time.
+
+----------------------------------------------------------
+--> Capable Of Handling Big Data
+
+	--> Generators can be useful if you have to deal with data of enormous size such as the Big Data. They work as an infinite stream of data.
+
+	--> We can not contain data of such magnitude in memory. But the generator which gives us one value at a time does represent an infinite stream of data.
+
+
+# Find All Prime Numbers Using Generator
+# 
+def find_prime():
+    num = 1
+    while True:
+        if num > 1:
+            for i in range(2, num):
+                if (num % i) == 0:
+                    break
+            else:
+                yield num
+        num += 1
+
+for ele in find_prime():
+    print(ele)
+
+--------------------------------------------------------------
+--> Generator pipeline
+
+	--> With the help of generators, we can create a pipeline of different operations. It is a cleaner way to sub-divide responsibilities among various components 		and then integrates them to achieve the desired result.
+
+	--> In the below example, we’ve chained two functions, the first finds the prime number between 1 to 100, and the latter selects the odd one from them.
+
+# Chain Multiple Operations Using Generator Pipeline
+------------------------------------------------------
+def find_prime():
+    num = 1
+    while num < 100:
+        if num > 1:
+            for i in range(2, num):
+                if (num % i) == 0:
+                    break
+            else:
+                yield num
+        num += 1
+
+def find_odd_prime(seq):
+    for num in seq:
+        if (num % 2) != 0:
+            yield num
+
+a_pipeline = find_odd_prime(find_prime())
+
+for a_ele in a_pipeline:
+    print(a_ele)
+--------------------------------------------------------
