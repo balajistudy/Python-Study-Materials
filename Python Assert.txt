@@ -1,0 +1,38 @@
+Python Assert
+
+	--> Assertions are simply boolean expressions that checks if the conditions return true or not. 
+	--> If it is true, the program does nothing and move to the next line of code. 
+	--> However, if it's false, the program stops and throws an error.
+	
+Syntax for using Assert in Pyhton:
+	assert <condition> 
+	(or)
+	assert <condition>,<error message>
+	
+Sample Program:
+=======================================
+def avg(marks):
+    assert len(marks) != 0
+    return sum(marks)/len(marks)
+
+mark1 = []
+print("Average of mark1:",avg(mark1))
+============================================
+Using assert with error message:
+==============================================
+def avg(marks):
+    assert len(marks) != 0,"List is empty."
+    return sum(marks)/len(marks)
+
+mark2 = [55,88,78,90,79]
+print("Average of mark2:",avg(mark2))
+
+mark1 = []
+print("Average of mark1:",avg(mark1))
+==============================================
+
+Key Points to Remember:
+	Assertions are the condition or boolean expression which are always supposed to be true in the code.
+	assert statement takes an expression and optional message.
+	assert statement is used to check types, values of argument and the output of the function.
+	assert statement is used as debugging tool as it halts the program at the point where an error occurs.
